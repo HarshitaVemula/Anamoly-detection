@@ -14,7 +14,7 @@ Servers can behave abnormally due to many reasons:
 
 Various algorithms were looked into to design an anomaly detection system.
 
-** Assumptions:The model was built assuming the normal operating state of the server is unknown to set thresholds for various parameters. ** __Assumptions:The model was built assuming the normal operating state of the server is unknown to set thresholds for various parameters.__
+__Assumptions:The model was built assuming the normal operating state of the server is unknown to set thresholds for various parameters.__
 
 ## Data
 
