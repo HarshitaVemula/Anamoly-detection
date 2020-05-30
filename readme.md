@@ -6,4 +6,10 @@ During my internship, I worked on detecting anamolous servers using server log d
 
 ## Anamoly detection in servers
 
-Servers can behave abnormally due to many reasons
+Servers can behave abnormally due to many reasons:
+* software failures 
+* hardware (e.g., some piece of hardware simply breaks down) 
+* offered load (an exceptionally high load is offered to the system)
+* human errors (e.g., configuration errors). 
+
+
