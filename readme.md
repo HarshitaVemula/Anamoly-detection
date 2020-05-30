@@ -22,5 +22,17 @@ The data contains information of various attributes such as temperature, memory,
 
 ## Task
 
+The tasks involve:
+* Identify the normal operating state of the server
+* Identify the threshold levels for various attributes
+* Identity the different abnormal states the server has been in and a method to automatically identify the new abnormal states 
+when they come up.
+* propose a way to identify a change in the normal operating state of the system, i.e. a way to identify the new normal.
+
+## Background into various anomaly detection techniques
+
+A
+
+
 
 
