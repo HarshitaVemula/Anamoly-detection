@@ -31,7 +31,7 @@ when they come up.
 
 ## Background into various anomaly detection techniques
 
-A
+Anomaly detection 
 
 
 
