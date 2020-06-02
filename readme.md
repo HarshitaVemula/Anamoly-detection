@@ -31,15 +31,14 @@ when they come up.
 
 ## Overview of the techniques used
 
-The task at hand is detecting anamolies in unlabelled data.The following anomaly detection techniques were looked into (I will summarize:
+The task at hand is detecting anamolies in unlabelled data.The following anomaly detection techniques were looked into:
 * Probabilistic anamoly detection methods
 * Domain based methods
 * Reconstruction error based methods
 * Distance based novelty detection
 * Density based novelty detection
 
-Due to the curse of dimensionality, density and distance based methods might not perform well in high dimensional space.
-So there were eliminated.
+Due to the curse of dimensionality, density and distance based methods might not perform well in high dimensional space, so there were eliminated.
 
 #### <ins>Probability based anomaly detection techniques</ins>
 
