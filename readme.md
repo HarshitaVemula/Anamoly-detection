@@ -41,7 +41,7 @@ The task at hand is detecting anamolies in unlabelled data.The following anomaly
 Due to the curse of dimensionality, density and distance based methods might not perform well in high dimensional space.
 So there were eliminated.
 
-#### Probability based anomaly detection techniques
+#### <ins>Probability based anomaly detection techniques</ins>
 
 
 
