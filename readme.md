@@ -29,9 +29,24 @@ The tasks involve:
 when they come up.
 * propose a way to identify a change in the normal operating state of the system, i.e. a way to identify the new normal.
 
-## Background into various anomaly detection techniques
+## Overview of the techniques used
 
-Anomaly detection 
+The task at hand is detecting anamolies in unlabelled data.The following anomaly detection techniques were looked into (I will summarize:
+* Probabilistic anamoly detection methods
+* Domain based methods
+* Reconstruction error based methods
+* Distance based novelty detection
+* Density based novelty detection
+
+Due to the curse of dimensionality, density and distance based methods might not perform well in high dimensional space.
+So there were eliminated.
+
+#### Probability based anomaly detection techniques
+
+
+
+
+
 
 
 
