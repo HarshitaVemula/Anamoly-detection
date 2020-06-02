@@ -17,17 +17,51 @@ Various algorithms were looked into to design an anomaly detection system.
 __Assumptions:The model was built assuming the normal operating state of the server is unknown to set thresholds for various parameters.__
 
 ## Data
-
 The data contains information of various attributes such as temperature, memory, cpu usage etc. The time dependent data points are obtained at very high frequencies.
 
-## Task
+## Objective
+Research methods to identify the different operational states of  a server utilizing the telemetry data from the server  instrumentation.
 
-The tasks involve:
+## Task
+Utilize	Clustering	and	Reconstruction	Error	based	Machine
+Learning methods to identify different operational states.
+
+The task can be broken down into the following sub-tasks:
 * Identify the normal operating state of the server
 * Identify the threshold levels for various attributes
 * Identity the different abnormal states the server has been in and a method to automatically identify the new abnormal states 
 when they come up.
 * propose a way to identify a change in the normal operating state of the system, i.e. a way to identify the new normal.
+
+## Potential Impacts:
+* Automate identification: Automatically identify when the  inherent operational state of the server changes.
+* Identify sub optimal states: Compare the operating states  obtained for different servers to draw insights to identify sub  optimal hardware, software and environmental conditions.
+* Optimal job scheduling: Identify the operating states of a  server under workload and advice orchestrators and job  schedulers in order to optimize the workload execution.
+* Accurate billing: Map operating states with job scheduling  information in order to charge customers based on the  amount of resources used and not just based on the time for  which a job is run.
+
+## Approach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Approach
 
