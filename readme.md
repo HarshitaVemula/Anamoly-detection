@@ -52,13 +52,16 @@ Clustering in one go was tried, but the clusters then obtained were highly simil
 
 So for any new data point that is obtained, prediction was made using Mean shift clustering and it is then assigned to its corresponding cluster according to DB Scan.
 
+
+<img src="1.png" width="80%">
+
 **2) Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.**
 
 Meanchift clustering was used with it's quantile set to a small value i.e. 0.01. This ensured that only very similar data points were clustered together. Of the clusters obtained the largest one was selected and and autoencoder was trained on it. The reconstruction error obtained was less for similar data points and was significantly large for dissimilar ones. The similar ones were clustered together and thresholds were set based on the mean and std of this cluster. The dissimilar points were analysed and were assigned to the cluster which has the corresponding abnormal covariate.
 
 New data point obtained can directly be compared with the threshold values and can be assigned to it's corresponding cluster.
 
-## Evaluation criterion for the 2 models.##
+## Evaluation criterion for the 2 models.
 The results obtained by the clustering algorithms were evaluated using silhouette score and by reclustering with different initializations. RMSE was used to build the autoencoder. 
 
 ## Shortcomings of the models
