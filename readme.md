@@ -61,12 +61,14 @@ Meanchift clustering was used with it's quantile set to a small value i.e. 0.01.
 
 New data point obtained can directly be compared with the threshold values and can be assigned to it's corresponding cluster.
 
+<img src="images/2.png" width="80%">
+
 ## Evaluation criterion for the 2 models.
 The results obtained by the clustering algorithms were evaluated using silhouette score and by reclustering with different initializations. RMSE was used to build the autoencoder. 
 
 ## Shortcomings of the models
 
-<img src="images/2122.png" width="80%">
+<img src="images/3.png" width="80%">
 
 
 
