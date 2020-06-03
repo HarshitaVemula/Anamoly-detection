@@ -66,7 +66,7 @@ New data point obtained can directly be compared with the threshold values and c
 ## Evaluation criterion for the 2 models.
 The results obtained by the clustering algorithms were evaluated using silhouette score and by reclustering with different initializations. RMSE was used to build the autoencoder. 
 
-## Shortcomings of the models
+## Shortcomings of the models 
 
 <img src="images/3.png" width="80%">
 
