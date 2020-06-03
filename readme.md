@@ -40,7 +40,7 @@ when they come up.
 * Accurate billing: Map operating states with job scheduling  information in order to charge customers based on the  amount of resources used and not just based on the time for  which a job is run.
 
 ## Approach
-1) Cluster the data to obtain different operating states of the server.Mean shift clustering and DB Scan were chosen.Clustering was performed in 2 rounds.
+**1) Cluster the data to obtain different operating states of the server.Mean shift clustering and DB Scan were chosen.Clustering was performed in 2 rounds.**
 
 Different clustering techniques were explored. Of the standard clustering algorithms available, the algorithms which did not require number of clusters as input (for which  domain knowledge is required), which could identify clusters of different shapes, which would scale well for large data sets, and  which did not make strong assumptions about the distributions of the clusters were selected. Mean Shift and DBSCAN were two  such algorithms.
 
@@ -52,11 +52,17 @@ Clustering in one go was tried, but the clusters then obtained were highly simil
 
 So for any new data point that is obtained, prediction was made using Mean shift clustering and it is then assigned to its corresponding cluster according to DB Scan.
 
-2) **Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.**
+**2) Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.**
 
 Meanchift clustering was used with it's quantile set to a small value i.e. 0.01. This ensured that only very similar data points were clustered together. Of the clusters obtained the largest one was selected and and autoencoder was trained on it. The reconstruction error obtained was less for similar data points and was significantly large for dissimilar ones. The similar ones were clustered together and thresholds were set based on the mean and std of this cluster. The dissimilar points were analysed and were assigned to the cluster which has the corresponding abnormal covariate.
 
 New data point obtained can directly be compared with the threshold values and can be assigned to it's corresponding cluster.
+
+**Evaluation criterion for the 2 models.**
+The results obtained by the clustering algorithms were evaluated using silhouette score and by reclustering with different initializations. RMSE was used to build the autoencoder. 
+
+## Shortcomings of the models
+
 
 
 
