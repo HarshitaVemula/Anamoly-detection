@@ -68,7 +68,7 @@ The results obtained by the clustering algorithms were evaluated using silhouett
 
 ## Shortcomings of the models 
 
-<img src="images/3.png" width="80%">
+<img src="images/4.png" width="80%">
 
 
 
