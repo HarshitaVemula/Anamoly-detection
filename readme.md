@@ -1,5 +1,6 @@
 # Anomaly detection using server log data
-<img src="images/anomaly.png" width="80%">
+<img src="images/anomaly.jpg" width="80%">
+
 ## Introduction
 
 During my internship, I worked on detecting anomalous servers using server log data. While working on this porject I researched extensively on various anomaly detection / novelty detection techniques. While not giving away an confidential data I will summarize the methodology that I followed to detect anomalies.
