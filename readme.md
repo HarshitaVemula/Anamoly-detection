@@ -40,6 +40,23 @@ when they come up.
 * Accurate billing: Map operating states with job scheduling  information in order to charge customers based on the  amount of resources used and not just based on the time for  which a job is run.
 
 ## Approach
+1) Cluster the data to obtain different operating states of the server.Mean shift clustering and DB Scan were chosen.Clustering was performed in 2 rounds.
+
+Different clustering techniques were explored. Of the standard clustering algorithms available, the algorithms which did not require number of clusters as input (for which  domain knowledge is required), which could identify clusters of different shapes, which would scale well for large data sets, and  which did not make strong assumptions about the distributions of the clusters were selected. Mean Shift and DBSCAN were two  such algorithms.
+
+The reason for not using DBSCAN for round 1 clustering is, DBSCAN has a hyper-parameter eps which has a range of (0, infinity), making identifying the right value for the hyper-parameter a non trivial job and also DBSCAN cannot make predictions on new  data obtained. Mean Shift clustering algorithm has a hyper-parameter called bandwidth, which again has a hyper-parameter  called quantile. The range of this hyper-parameter is [0,1] making it relatively easier to tune it and also Mean Shift clustering  algorithm can make predictions on the new data obtained.
+
+Distances between the clusters obtained after round 1 clustering were calculated and DBSCAN is used to merge similar clusters.  The range of the hyperparameter eps, in this case, is [0,2] as cosine similarity varies between [-1,1] and distance which is equal  to 1-similarity varies between [0,2].
+
+Clustering in one go was tried, but the clusters then obtained were highly similar. Hence two rounds of clustering was  performed.
+
+So for any new data point that is obtained, prediction was made using Mean shift clustering and it is then assigned to its corresponding cluster according to DB Scan.
+
+2) Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.
+
+Meanchift clustering was used with it's quantile set to a small value i.e. 0.01. This ensured that only very similar data points were clustered together. Of the clusters obtained the largest one was selected and and autoencoder was trained on it. The reconstruction error obtained was less for similar data points and was significantly large for dissimilar ones. The similar ones were clustered together and thresholds were set based on the mean and std of this cluster. The dissimilar points were analysed and were assigned to the cluster which has the corresponding abnormal covariate.
+
+New data point obtained can directly be compared with the threshold values and can be assigned to it's corresponding cluster.
 
 
 
@@ -48,56 +65,6 @@ when they come up.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Approach
-
-The task at hand is detecting anamolies in unlabelled data.The following anomaly detection techniques were looked into:
-* Probabilistic anamoly detection methods
-* Domain based methods
-* Reconstruction error based methods
-* Distance based novelty detection
-* Density based novelty detection
-
-Due to the curse of dimensionality, density and distance based methods might not perform well in high dimensional space, so there were eliminated.
-
-#### <ins>Probability based anomaly detection techniques</ins>
-Identified the number of clusters using the change in AIC (Akaike information criterion) and BIC (Bayesian information
-criterion) values obtained for each model built for different number of components / clusters.
-
-The graphs did not clearly indicate the number of clusters present. Have set the number of clusters to 5.
-
-The algorithm has split the data up to 20000 data points into 2 clusters and 20000-400,000 data points were split into 3  clusters. But the simulated data between 20000-400,000 data points should have been split into 5 clusters and the data  points up to 20000 should have belonged to one of the 5 clusters.As this was not how the data was clustered, one can conclude that GMM did not cluster well.
-
-Speculations: Why did GMM not work:
-The clusters may not be gaussian.
-Uneven number of data points in the clusters.
-Reference :http://hameddaily.blogspot.com/2015/03/when-not-to-use-gaussian-mixtures-model.html
-
-#### <ins>Domain based novelty detection</ins>
-Should split the data into 2 clusters. One cluster which contains observations similar to the data points on which the model is trained and the other cluster which has data points not similar to the training data.
-
-One class SVM failed to split the data properly, in the sense that it was very sensitive to the training data provided. A data  point even slightly different from the training data was assigned to the abnormal class or a different class.
-
-#### <ins>Reconstruction error based</ins>
-If a model is trained on data which corresponds to some operating state of a server (which can initially be identified from the  data using some clustering technique) say normal state, then if the server starts operating in a state different than the data  on which the model is trained on, there will be a change in the distribution of the residuals indicating the change in state.
-
-Used auto encoders and trained them on the data which corresponds to the normal operating state of the server.
-
-So the question that is now to be addressed is, how do we indentify the normal operating state?
 
 
 
