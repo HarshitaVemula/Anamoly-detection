@@ -1,5 +1,5 @@
 # Anomaly detection using server log data
-<img src="images/anomaly.jpg" width="80%">
+<img src="images/anomaly.jpg" width="100%">
 
 ## Introduction
 
