@@ -53,7 +53,7 @@ Clustering in one go was tried, but the clusters then obtained were highly simil
 So for any new data point that is obtained, prediction was made using Mean shift clustering and it is then assigned to its corresponding cluster according to DB Scan.
 
 
-<img src="1.png" width="80%">
+<img src="images/1.png" width="80%">
 
 **2) Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.**
 
