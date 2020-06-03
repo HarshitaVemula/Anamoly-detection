@@ -1,10 +1,10 @@
-# Anamoly detection using server log data
+# Anomaly detection using server log data
 
 ## Introduction
 
-During my internship, I worked on detecting anamolous servers using server log data. While working on this porject I researched extensively on various anamoly detection / novelty detection techniques. While not giving away an confidential data I will summarize the methodology that I followed to detect anamolies.
+During my internship, I worked on detecting anomalous servers using server log data. While working on this porject I researched extensively on various anomaly detection / novelty detection techniques. While not giving away an confidential data I will summarize the methodology that I followed to detect anomalies.
 
-## Anamoly detection in servers
+## Anomaly detection in servers
 
 Servers can behave abnormally due to many reasons:
 * software failures 
@@ -57,13 +57,13 @@ So for any new data point that is obtained, prediction was made using Mean shift
 
 **2) Threshold based method. Reconstruction error is used to set thresholds and indentify anomalies, the anomalies are then classified into different categories.**
 
-Meanchift clustering was used with it's quantile set to a small value i.e. 0.01. This ensured that only very similar data points were clustered together. Of the clusters obtained the largest one was selected and and autoencoder was trained on it. The reconstruction error obtained was less for similar data points and was significantly large for dissimilar ones. The similar ones were clustered together and thresholds were set based on the mean and std of this cluster. The dissimilar points were analysed and were assigned to the cluster which has the corresponding abnormal covariate.
+Meanshift clustering was used with it's quantile set to a small value i.e. 0.01. This ensured that only very similar data points were clustered together. Of the clusters obtained the largest one was selected and and autoencoder was trained on it. The reconstruction error obtained was less for similar data points and was significantly large for dissimilar ones. The similar ones were clustered together and thresholds were set based on the mean and std of this cluster. The dissimilar points were analysed and were assigned to the cluster which has the corresponding abnormal covariate.
 
 New data point obtained can directly be compared with the threshold values and can be assigned to it's corresponding cluster.
 
 <img src="images/2.png" width="80%">
 
-## Evaluation criterion for the 2 models.
+## Evaluation criterion for the two models.
 The results obtained by the clustering algorithms were evaluated using silhouette score and by reclustering with different initializations. RMSE was used to build the autoencoder. 
 
 ## Shortcomings of the models 
